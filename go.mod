@@ -1,6 +1,6 @@
 module github.com/Yuri47h/aigitemoji
 
-go 1.22
+go 1.22.2
 
 require (
 	github.com/go-git/go-git/v5 v5.12.0

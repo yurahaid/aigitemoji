@@ -5,7 +5,6 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Yuri47h/aigitemoji/cmd/aimoji"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -19,7 +18,7 @@ func main() {
 		Short: "Create commit with a suitable emojiproviders based on the message of the comment using AI",
 	}
 
-	rootCmd.AddCommand(aimoji.CreateCommands()...)
+	rootCmd.AddCommand(CreateCommands()...)
 
 	if err := rootCmd.Execute(); err != nil {
 		_, _ = fmt.Fprintln(os.Stderr, err)

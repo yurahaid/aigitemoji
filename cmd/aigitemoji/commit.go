@@ -1,4 +1,4 @@
-package aimoji
+package main
 
 import (
 	"fmt"
