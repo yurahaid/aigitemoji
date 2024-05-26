@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/Yuri47h/aigitemoji/pkg/openai"
+	"github.com/yurahaid/aigitemoji/pkg/openai"
 )
 
 type ChatGpt struct {

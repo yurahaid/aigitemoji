@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/Yuri47h/aigitemoji/internal"
-	"github.com/Yuri47h/aigitemoji/internal/emojiproviders"
-	"github.com/Yuri47h/aigitemoji/internal/git"
-	"github.com/Yuri47h/aigitemoji/pkg/openai"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/yurahaid/aigitemoji/internal"
+	"github.com/yurahaid/aigitemoji/internal/emojiproviders"
+	"github.com/yurahaid/aigitemoji/internal/git"
+	"github.com/yurahaid/aigitemoji/pkg/openai"
 )
 
 func NewCommitCmd() *cobra.Command {

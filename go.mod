@@ -1,4 +1,4 @@
-module github.com/Yuri47h/aigitemoji
+module github.com/yurahaid/aigitemoji
 
 go 1.22.2
 
