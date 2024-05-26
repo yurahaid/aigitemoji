@@ -7,3 +7,5 @@
 3. Export open-ai api key int env `export OPEN_AI_API_KEY={your_key}`
 4. Use AI git emoji `aigitemoji commit "Test commit"` or  `aigitemoji commit --amend "New commit message"`
 5. Enjoy 🎉
+
+![example](/docs/example.gif)
