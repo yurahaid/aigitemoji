@@ -25,7 +25,7 @@ const (
 type Client struct {
 	httpClient *http.Client
 	url        string
-	apiToken   string
+	apiKey     string
 	model      Model
 }
 
@@ -60,11 +60,11 @@ type responseFormat struct {
 	Type string `json:"type"`
 }
 
-func NewClient(httpClient *http.Client, url string, apiToken string, model Model) *Client {
+func NewClient(httpClient *http.Client, url string, apiKey string, model Model) *Client {
 	return &Client{
 		httpClient: httpClient,
 		url:        url,
-		apiToken:   apiToken,
+		apiKey:     apiKey,
 		model:      model,
 	}
 }
@@ -104,7 +104,7 @@ func (c *Client) Completions(ctx context.Context, messages []Message) (Response,
 }
 
 func (c *Client) sendRequest(ctx context.Context, req *http.Request) (*http.Response, error) {
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.apiToken))
+	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", c.apiKey))
 	req.Header.Set("Content-Type", "application/json")
 
 	return c.httpClient.Do(req.WithContext(ctx))

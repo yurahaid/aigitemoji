@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"aigitemoji/cmd/aimoji"
+	"github.com/Yuri47h/aigitemoji/cmd/aimoji"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"aigitemoji/internal/git"
+	"github.com/Yuri47h/aigitemoji/internal/git"
 )
 
 type EmojiProvider interface {

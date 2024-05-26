@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"net/http"
 
-	"aigitemoji/internal"
-	"aigitemoji/internal/emojiproviders"
-	"aigitemoji/internal/git"
-	"aigitemoji/pkg/openai"
+	"github.com/Yuri47h/aigitemoji/internal"
+	"github.com/Yuri47h/aigitemoji/internal/emojiproviders"
+	"github.com/Yuri47h/aigitemoji/internal/git"
+	"github.com/Yuri47h/aigitemoji/pkg/openai"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -18,7 +18,7 @@ func NewCommitCmd() *cobra.Command {
 		openAiUrl string
 	)
 
-	var token string
+	var key string
 	cmd := &cobra.Command{
 		Short: "Create commit with a suitable emojiproviders based on the message of the comment using AI",
 		Args:  cobra.MatchAll(cobra.ExactArgs(1), cobra.OnlyValidArgs),
@@ -28,12 +28,12 @@ func NewCommitCmd() *cobra.Command {
 			if err != nil {
 				cmd.PrintErrln(err)
 			}
-			openAiToken := viper.GetString("open-ai-api-token")
+			openAiKey := viper.GetString("open-ai-api-key")
 			httpClient := &http.Client{}
 			openAiClient := openai.NewClient(
 				httpClient,
 				openAiUrl,
-				openAiToken,
+				openAiKey,
 				openai.Model35turbo,
 			)
 			emojiProvider := emojiproviders.NewChatGpt(openAiClient)
@@ -61,8 +61,8 @@ func NewCommitCmd() *cobra.Command {
 		"as the current one (the --reset-author option can countermand this).",
 	)
 	flags.StringVar(&openAiUrl, "open-ai-url", "https://api.openai.com", "open-ai url")
-	flags.StringVar(&token, "open-ai-api-token", "", "username, facultative if you have config file")
-	if err := viper.BindPFlag("open-ai-api-token", flags.Lookup("open-ai-api-token")); err != nil {
+	flags.StringVar(&key, "open-ai-api-key", "", "username, facultative if you have config file")
+	if err := viper.BindPFlag("open-ai-api-key", flags.Lookup("open-ai-api-key")); err != nil {
 		fmt.Println(err)
 	}
 
