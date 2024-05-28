@@ -6,6 +6,7 @@ import (
 
 func CreateCommands() []*cobra.Command {
 	return []*cobra.Command{
+		NewVersionCmd(),
 		NewCommitCmd(),
 	}
 }

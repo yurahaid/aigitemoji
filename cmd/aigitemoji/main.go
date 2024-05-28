@@ -14,8 +14,9 @@ func main() {
 	viper.SetEnvKeyReplacer(strings.NewReplacer("-", "_"))
 
 	rootCmd := &cobra.Command{
-		Use:   "aigitemoji",
-		Short: "Create commit with a suitable emojiproviders based on the message of the comment using AI",
+		Version: currentVersion(),
+		Use:     "aigitemoji",
+		Short:   "Create commit with a suitable emojiproviders based on the message of the comment using AI",
 	}
 
 	rootCmd.AddCommand(CreateCommands()...)
