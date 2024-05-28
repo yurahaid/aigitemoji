@@ -20,8 +20,13 @@ func NewAIGitEmoji(emojiProvider EmojiProvider, git *git.Git) *AIGitEmoji {
 	return &AIGitEmoji{emojiProvider: emojiProvider, git: git}
 }
 
-func (a *AIGitEmoji) Commit(ctx context.Context, message string, amend bool) (commit string, hash string, err error) {
-	emoji, err := a.emojiProvider.Emoji(ctx, message)
+func (a *AIGitEmoji) Commit(
+	ctx context.Context,
+	message string,
+	messageForAI string,
+	amend bool,
+) (commit string, hash string, err error) {
+	emoji, err := a.emojiProvider.Emoji(ctx, messageForAI)
 	if err != nil {
 		return "", "", fmt.Errorf("error getting emoji: %w", err)
 	}
